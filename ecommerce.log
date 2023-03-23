@@ -1,0 +1,64 @@
+2023-03-23T16:49:58.749+01:00  INFO 4700 --- [main] c.e.e.EccomerBackendApplication          : Starting EccomerBackendApplication using Java 17.0.4.1 with PID 4700 (D:\Books\University of Bamberg\project\eccomer-backend\target\classes started by HP in D:\Books\University of Bamberg\project\eccomer-backend)
+2023-03-23T16:49:58.765+01:00  INFO 4700 --- [main] c.e.e.EccomerBackendApplication          : The following 1 profile is active: "local"
+2023-03-23T16:50:00.742+01:00  INFO 4700 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-03-23T16:50:00.804+01:00  INFO 4700 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 33 ms. Found 0 JPA repository interfaces.
+2023-03-23T16:50:02.223+01:00  INFO 4700 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+2023-03-23T16:50:02.251+01:00  INFO 4700 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-03-23T16:50:02.252+01:00  INFO 4700 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-03-23T16:50:02.500+01:00  INFO 4700 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-03-23T16:50:02.500+01:00  INFO 4700 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3570 ms
+2023-03-23T16:50:02.530+01:00 DEBUG 4700 --- [main] com.zaxxer.hikari.HikariConfig           : Driver class org.h2.Driver found in Thread context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@6f94fa3e
+2023-03-23T16:50:02.567+01:00 DEBUG 4700 --- [main] com.zaxxer.hikari.HikariConfig           : LIVE_SERVER_POOL - configuration:
+2023-03-23T16:50:02.573+01:00 DEBUG 4700 --- [main] com.zaxxer.hikari.HikariConfig           : allowPoolSuspension.............false
+2023-03-23T16:50:02.574+01:00 DEBUG 4700 --- [main] com.zaxxer.hikari.HikariConfig           : autoCommit......................true
+2023-03-23T16:50:02.576+01:00 DEBUG 4700 --- [main] com.zaxxer.hikari.HikariConfig           : catalog.........................none
+2023-03-23T16:50:02.578+01:00 DEBUG 4700 --- [main] com.zaxxer.hikari.HikariConfig           : connectionInitSql...............none
+2023-03-23T16:50:02.579+01:00 DEBUG 4700 --- [main] com.zaxxer.hikari.HikariConfig           : connectionTestQuery.............none
+2023-03-23T16:50:02.580+01:00 DEBUG 4700 --- [main] com.zaxxer.hikari.HikariConfig           : connectionTimeout...............28000
+2023-03-23T16:50:02.582+01:00 DEBUG 4700 --- [main] com.zaxxer.hikari.HikariConfig           : dataSource......................none
+2023-03-23T16:50:02.584+01:00 DEBUG 4700 --- [main] com.zaxxer.hikari.HikariConfig           : dataSourceClassName.............none
+2023-03-23T16:50:02.585+01:00 DEBUG 4700 --- [main] com.zaxxer.hikari.HikariConfig           : dataSourceJNDI..................none
+2023-03-23T16:50:02.586+01:00 DEBUG 4700 --- [main] com.zaxxer.hikari.HikariConfig           : dataSourceProperties............{password=<masked>}
+2023-03-23T16:50:02.586+01:00 DEBUG 4700 --- [main] com.zaxxer.hikari.HikariConfig           : driverClassName................."org.h2.Driver"
+2023-03-23T16:50:02.587+01:00 DEBUG 4700 --- [main] com.zaxxer.hikari.HikariConfig           : exceptionOverrideClassName......none
+2023-03-23T16:50:02.587+01:00 DEBUG 4700 --- [main] com.zaxxer.hikari.HikariConfig           : healthCheckProperties...........{}
+2023-03-23T16:50:02.587+01:00 DEBUG 4700 --- [main] com.zaxxer.hikari.HikariConfig           : healthCheckRegistry.............none
+2023-03-23T16:50:02.587+01:00 DEBUG 4700 --- [main] com.zaxxer.hikari.HikariConfig           : idleTimeout.....................300000
+2023-03-23T16:50:02.587+01:00 DEBUG 4700 --- [main] com.zaxxer.hikari.HikariConfig           : initializationFailTimeout.......1
+2023-03-23T16:50:02.587+01:00 DEBUG 4700 --- [main] com.zaxxer.hikari.HikariConfig           : isolateInternalQueries..........false
+2023-03-23T16:50:02.588+01:00 DEBUG 4700 --- [main] com.zaxxer.hikari.HikariConfig           : jdbcUrl.........................jdbc:h2:file:./data/demo
+2023-03-23T16:50:02.588+01:00 DEBUG 4700 --- [main] com.zaxxer.hikari.HikariConfig           : keepaliveTime...................0
+2023-03-23T16:50:02.588+01:00 DEBUG 4700 --- [main] com.zaxxer.hikari.HikariConfig           : leakDetectionThreshold..........0
+2023-03-23T16:50:02.588+01:00 DEBUG 4700 --- [main] com.zaxxer.hikari.HikariConfig           : maxLifetime.....................1800000
+2023-03-23T16:50:02.588+01:00 DEBUG 4700 --- [main] com.zaxxer.hikari.HikariConfig           : maximumPoolSize.................50
+2023-03-23T16:50:02.589+01:00 DEBUG 4700 --- [main] com.zaxxer.hikari.HikariConfig           : metricRegistry..................none
+2023-03-23T16:50:02.589+01:00 DEBUG 4700 --- [main] com.zaxxer.hikari.HikariConfig           : metricsTrackerFactory...........none
+2023-03-23T16:50:02.589+01:00 DEBUG 4700 --- [main] com.zaxxer.hikari.HikariConfig           : minimumIdle.....................10
+2023-03-23T16:50:02.589+01:00 DEBUG 4700 --- [main] com.zaxxer.hikari.HikariConfig           : password........................<masked>
+2023-03-23T16:50:02.593+01:00 DEBUG 4700 --- [main] com.zaxxer.hikari.HikariConfig           : poolName........................"LIVE_SERVER_POOL"
+2023-03-23T16:50:02.597+01:00 DEBUG 4700 --- [main] com.zaxxer.hikari.HikariConfig           : readOnly........................false
+2023-03-23T16:50:02.600+01:00 DEBUG 4700 --- [main] com.zaxxer.hikari.HikariConfig           : registerMbeans..................false
+2023-03-23T16:50:02.602+01:00 DEBUG 4700 --- [main] com.zaxxer.hikari.HikariConfig           : scheduledExecutor...............none
+2023-03-23T16:50:02.604+01:00 DEBUG 4700 --- [main] com.zaxxer.hikari.HikariConfig           : schema..........................none
+2023-03-23T16:50:02.605+01:00 DEBUG 4700 --- [main] com.zaxxer.hikari.HikariConfig           : threadFactory...................internal
+2023-03-23T16:50:02.606+01:00 DEBUG 4700 --- [main] com.zaxxer.hikari.HikariConfig           : transactionIsolation............default
+2023-03-23T16:50:02.607+01:00 DEBUG 4700 --- [main] com.zaxxer.hikari.HikariConfig           : username........................"sa"
+2023-03-23T16:50:02.607+01:00 DEBUG 4700 --- [main] com.zaxxer.hikari.HikariConfig           : validationTimeout...............5000
+2023-03-23T16:50:02.608+01:00  INFO 4700 --- [main] com.zaxxer.hikari.HikariDataSource       : LIVE_SERVER_POOL - Starting...
+2023-03-23T16:50:03.038+01:00  INFO 4700 --- [main] com.zaxxer.hikari.pool.HikariPool        : LIVE_SERVER_POOL - Added connection conn0: url=jdbc:h2:file:./data/demo user=SA
+2023-03-23T16:50:03.042+01:00  INFO 4700 --- [main] com.zaxxer.hikari.HikariDataSource       : LIVE_SERVER_POOL - Start completed.
+2023-03-23T16:50:03.074+01:00  INFO 4700 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/demo'
+2023-03-23T16:50:03.394+01:00  INFO 4700 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-03-23T16:50:03.557+01:00  INFO 4700 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-03-23T16:50:04.204+01:00  INFO 4700 --- [main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-03-23T16:50:04.700+01:00  INFO 4700 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-03-23T16:50:04.738+01:00  INFO 4700 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-03-23T16:50:04.852+01:00  WARN 4700 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-03-23T16:50:05.762+01:00  INFO 4700 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path ''
+2023-03-23T16:50:05.788+01:00  INFO 4700 --- [main] c.e.e.EccomerBackendApplication          : Started EccomerBackendApplication in 8.666 seconds (process running for 12.084)
+2023-03-23T16:54:38.095+01:00  INFO 4700 --- [http-nio-8000-exec-6] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-03-23T16:54:38.096+01:00  INFO 4700 --- [http-nio-8000-exec-6] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-03-23T16:54:38.099+01:00  INFO 4700 --- [http-nio-8000-exec-6] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-03-23T16:54:52.250+01:00  INFO 4700 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-03-23T16:54:52.258+01:00  INFO 4700 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : LIVE_SERVER_POOL - Shutdown initiated...
+2023-03-23T16:54:52.264+01:00  INFO 4700 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : LIVE_SERVER_POOL - Shutdown completed.
