@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 @Data
 @RequiredArgsConstructor
-@NoArgsConstructor
+//@NoArgsConstructor
 public class User {
     private Long id;
     private String firtsName;
