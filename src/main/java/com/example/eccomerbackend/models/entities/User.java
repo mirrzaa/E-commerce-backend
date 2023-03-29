@@ -23,15 +23,15 @@ public class User {
     private String lastName;
     @Column(name = "user_name", nullable= true)
     private String username;
-    @Column(name = "password", nullable= false)
+    @Column(name = "password", nullable= true)
     private String password;
-    @Column(name = "birth_day", nullable= false)
+    @Column(name = "birth_day", nullable= true)
     private LocalDate birthDate;
     @Column(name = "phone_number")
     private String phoneNumber;
-    @Column(name = "email", nullable= false)
+    @Column(name = "email", nullable= true)
     private String email;
-    @Column(name = "post_adress", nullable= false)
+    @Column(name = "post_adress", nullable= true)
     private String postAddress;
     @ManyToMany
     @JoinTable(
