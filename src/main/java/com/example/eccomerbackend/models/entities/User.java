@@ -5,21 +5,23 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @RequiredArgsConstructor
-//@NoArgsConstructor
 @Entity
 @Table(name = "user_table")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "firts_name", nullable= false)
-    private String firtsName;
-    @Column(name = "last_name", nullable= false)
+    @Column(name = "firts_name", nullable= true)
+    private String firstName;
+    @Column(name = "last_name", nullable= true)
     private String lastName;
-    @Column(name = "user_name", nullable= false)
+    @Column(name = "user_name", nullable= true)
     private String username;
     @Column(name = "password", nullable= false)
     private String password;
@@ -31,10 +33,18 @@ public class User {
     private String email;
     @Column(name = "post_adress", nullable= false)
     private String postAddress;
+    @ManyToMany
+    @JoinTable(
+            name = "user_roles",
+            joinColumns = @JoinColumn(
+                    name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(
+                    name = "role_id", referencedColumnName = "id"))
+    private Collection<Role> roles;
 
     public User(Long id, String firtsName, String lastName, String username, String password, LocalDate birthDate, String phoneNumber, String email, String postAddress) {
         this.id = id;
-        this.firtsName = firtsName;
+        this.firstName = firtsName;
         this.lastName = lastName;
         this.username = username;
         this.password = password;
@@ -52,12 +62,12 @@ public class User {
         this.id = id;
     }
 
-    public String getFirtsName() {
-        return firtsName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirtsName(String firtsName) {
-        this.firtsName = firtsName;
+    public void setFirstName(String firtsName) {
+        this.firstName = firtsName;
     }
 
     public String getLastName() {
@@ -114,5 +124,13 @@ public class User {
 
     public void setPostAddress(String postAddress) {
         this.postAddress = postAddress;
+    }
+
+    public Collection<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Collection<Role> roles) {
+        this.roles = roles;
     }
 }
