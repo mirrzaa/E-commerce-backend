@@ -15,7 +15,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "firts_name", nullable= true)
+    @Column(name = "first_name", nullable= true)
     private String firstName;
     @Column(name = "last_name", nullable= true)
     private String lastName;
@@ -29,7 +29,7 @@ public class User {
     private String phoneNumber;
     @Column(name = "email", nullable= true)
     private String email;
-    @Column(name = "post_adress", nullable= true)
+    @Column(name = "post_address", nullable= true)
     private String postAddress;
     @ManyToMany
     @JoinTable(
@@ -43,9 +43,9 @@ public class User {
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private UserStatus userStatus;
 
-    public User(Long id, String firtsName, String lastName, String username, String password, LocalDate birthDate, String phoneNumber, String email, String postAddress) {
+    public User(Long id, String firstName, String lastName, String username, String password, LocalDate birthDate, String phoneNumber, String email, String postAddress) {
         this.id = id;
-        this.firstName = firtsName;
+        this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
         this.password = password;
@@ -67,8 +67,8 @@ public class User {
         return firstName;
     }
 
-    public void setFirstName(String firtsName) {
-        this.firstName = firtsName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLastName() {

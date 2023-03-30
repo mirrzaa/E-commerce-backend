@@ -1,17 +1,28 @@
 package com.example.eccomerbackend.models.entities;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
+
+import java.util.Collection;
 
 @Data
 @RequiredArgsConstructor
 @Entity
+@Table(name = "Category")
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+        name = "Product",
+        joinColumns = @JoinColumn(
+                name = "categoryId", referencedColumnName = "id"),
+        inverseJoinColumns = @JoinColumn(
+                name = "productId", referencedColumnName = "id"))
+    private Collection<Product> products;
 
     public Category(Long id, String name){
         this.id = id;

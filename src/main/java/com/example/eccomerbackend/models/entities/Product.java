@@ -1,12 +1,13 @@
 package com.example.eccomerbackend.models.entities;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.*;;
+import java.util.Collection;
 
 @Data
 @RequiredArgsConstructor
 @Entity
+@Table(name = "Product")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,6 +16,18 @@ public class Product {
     private String description;
     private Long categoryId;
     private Integer price;
+
+    @ManyToMany(mappedBy = "products")
+    private Collection<Category> categories;
+
+    @ManyToMany
+    @JoinTable(
+            name = "Category",
+            joinColumns = @JoinColumn(
+                    name = "productId", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(
+                    name = "orderId", referencedColumnName = "id"))
+    private Collection<Order> orders;
 
     public Product(Long id, String name, String description, Long categoryId, Integer price){
         this.id = id;
