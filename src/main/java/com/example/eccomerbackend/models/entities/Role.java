@@ -3,8 +3,6 @@ package com.example.eccomerbackend.models.entities;
 import jakarta.persistence.*;
 
 import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name = "role")
@@ -12,13 +10,10 @@ public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String ROLE_USER;
-    private String ROLE_ADMIN;
-    private String ROLE_SELLER;
+    private String role_name;
 
     @ManyToMany(mappedBy = "roles")
     private Collection<User> users;
-
 
     public Long getId() {
         return id;
@@ -28,27 +23,19 @@ public class Role {
         this.id = id;
     }
 
-    public String getROLE_USER() {
-        return ROLE_USER;
+    public String getRole_name() {
+        return role_name;
     }
 
-    public void setROLE_USER(String ROLE_USER) {
-        this.ROLE_USER = ROLE_USER;
+    public void setRole_name(String role_name) {
+        this.role_name = role_name;
     }
 
-    public String getROLE_ADMIN() {
-        return ROLE_ADMIN;
+    public Collection<User> getUsers() {
+        return users;
     }
 
-    public void setROLE_ADMIN(String ROLE_ADMIN) {
-        this.ROLE_ADMIN = ROLE_ADMIN;
-    }
-
-    public String getROLE_SELLER() {
-        return ROLE_SELLER;
-    }
-
-    public void setROLE_SELLER(String ROLE_SELLER) {
-        this.ROLE_SELLER = ROLE_SELLER;
+    public void setUsers(Collection<User> users) {
+        this.users = users;
     }
 }

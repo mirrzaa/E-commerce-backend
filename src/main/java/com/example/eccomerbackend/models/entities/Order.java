@@ -1,9 +1,10 @@
 package com.example.eccomerbackend.models.entities;
 
 import jakarta.persistence.*;
+import lombok.RequiredArgsConstructor;
 
 import java.util.Date;
-
+@RequiredArgsConstructor
 @Entity
 public class Order {
     @Id
@@ -48,7 +49,7 @@ public class Order {
         return updatedDate;
     }
 
-    public void setUpdatedDate(Date updatedDateDate){
-        this.updatedDate = updatedDateDate;
+    public void setUpdatedDate(Date updatedDate){
+        this.updatedDate = updatedDate;
     }
 }

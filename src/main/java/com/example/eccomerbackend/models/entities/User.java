@@ -43,9 +43,9 @@ public class User {
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private UserStatus userStatus;
 
-    public User(Long id, String firtsName, String lastName, String username, String password, LocalDate birthDate, String phoneNumber, String email, String postAddress) {
+    public User(Long id, String firstName, String lastName, String username, String password, LocalDate birthDate, String phoneNumber, String email, String postAddress) {
         this.id = id;
-        this.firstName = firtsName;
+        this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
         this.password = password;
