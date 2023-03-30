@@ -1,11 +1,17 @@
 package com.example.eccomerbackend.models.entities;
 
 import jakarta.persistence.*;
+<<<<<<< HEAD
 import lombok.*;
 import java.util.Collection;
 import java.util.*;
 
 @Data
+=======
+import lombok.RequiredArgsConstructor;
+
+import java.util.Date;
+>>>>>>> 0644590c3bde997f71e93d3732f9d542cb8f9550
 @RequiredArgsConstructor
 @Entity
 @Table(name = "Order")
@@ -63,8 +69,8 @@ public class Order {
         return updatedDate;
     }
 
-    public void setUpdatedDate(Date updatedDateDate){
-        this.updatedDate = updatedDateDate;
+    public void setUpdatedDate(Date updatedDate){
+        this.updatedDate = updatedDate;
     }
 
     public Long getProductId(){
