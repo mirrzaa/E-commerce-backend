@@ -25,7 +25,7 @@ public class Order {
     private Long product_id;
     private Long payment_id;
 
-    @ManyToMany(mappedBy = "products")
+    @OneToOne(mappedBy = "orders")
     private Collection<Product> products;
 
     @OneToOne(cascade = CascadeType.ALL)

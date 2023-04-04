@@ -17,7 +17,7 @@ public class Product {
     private Long categoryId;
     private Integer price;
 
-    @ManyToMany(mappedBy = "products")
+    @OneToOne(mappedBy = "products")
     private Collection<Category> categories;
 
     @ManyToMany
