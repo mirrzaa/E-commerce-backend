@@ -1,17 +1,13 @@
 package com.example.eccomerbackend.models.entities;
 
 import jakarta.persistence.*;
-<<<<<<< HEAD
+
 import lombok.*;
 import java.util.Collection;
 import java.util.*;
-
-@Data
-=======
 import lombok.RequiredArgsConstructor;
 
-import java.util.Date;
->>>>>>> 0644590c3bde997f71e93d3732f9d542cb8f9550
+@Data
 @RequiredArgsConstructor
 @Entity
 @Table(name = "Order")
@@ -29,8 +25,8 @@ public class Order {
     private Collection<Product> products;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "payment_id", referencedColumnName = "id"))
-    private Payment payment;
+    @JoinColumn(name = "payment_id", referencedColumnName = "id")
+    private Payment payments;
 
     public Order(Long id, Long userId, Date creationDate, Date updatedDate, Long product_id, Long payment_id){
         this.id = id;

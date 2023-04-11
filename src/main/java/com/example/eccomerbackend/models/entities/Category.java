@@ -8,6 +8,7 @@ import java.util.Collection;
 @Data
 @RequiredArgsConstructor
 @Entity
+@ToString
 @Table(name = "Category")
 public class Category {
     @Id
@@ -44,7 +45,6 @@ public class Category {
     public void setName(String name){
         this.name = name;
     }
-
 }
 
 
