@@ -3,23 +3,22 @@ package com.example.eccomerbackend.models.entities;
 import jakarta.persistence.*;
 
 import java.util.*;
-
+@Entity
+@Table(name = "request_log")
 public class Request_log {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
     private Date created_date;
-    private Long payment_id;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "payment_id", referencedColumnName = "id")
+    @OneToOne()
+    @JoinColumn(name = "payment_id")
     private Payment payment;
 
-    public Request_log(Long id, Date created_date, Long payment_id){
+    public Request_log(Long id, Date created_date, Payment payment) {
         this.id = id;
         this.created_date = created_date;
-        this.payment_id = payment_id;
+        this.payment = payment;
     }
 
     public Long getId(){
@@ -38,11 +37,11 @@ public class Request_log {
         this.created_date = created_date;
     }
 
-    public Long getPayment_id(){
-        return payment_id;
+    public Payment getPayment() {
+        return payment;
     }
 
-    public void setPayment_id(Long payment_id) {
-        this.payment_id = payment_id;
+    public void setPayment(Payment payment) {
+        this.payment = payment;
     }
 }

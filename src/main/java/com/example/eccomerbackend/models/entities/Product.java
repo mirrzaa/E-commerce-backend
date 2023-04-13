@@ -7,35 +7,30 @@ import java.util.Collection;
 @Data
 @RequiredArgsConstructor
 @Entity
-@Table(name = "Product")
+//@Table(name = "products")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String description;
-    private Long categoryId;
     private Integer price;
 
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category categories;
+
     @OneToOne(mappedBy = "products")
-    private Collection<Category> categories;
+    private Order orders;
 
-    @ManyToMany
-    @JoinTable(
-            name = "Category",
-            joinColumns = @JoinColumn(
-                    name = "productId", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(
-                    name = "orderId", referencedColumnName = "id"))
-    private Collection<Order> orders;
-
-    public Product(Long id, String name, String description, Long categoryId, Integer price){
+    public Product(Long id, String name, String description, Category category, Integer price) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.categoryId = categoryId;
+        this.categories = category;
         this.price = price;
     }
+
 
     public Long getId(){
         return id;
@@ -61,19 +56,27 @@ public class Product {
         this.description = description;
     }
 
-    public Long getCategoryId(){
-        return categoryId;
-    }
-
-    public void setCategoryId(Long categoryId){
-        this.categoryId = categoryId;
-    }
-
     public Integer getPrice(){
         return price;
     }
 
     public void setPrice(Integer price){
         this.price = price;
+    }
+
+    public Category getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Category categories) {
+        this.categories = categories;
+    }
+
+    public Order getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Order orders) {
+        this.orders = orders;
     }
 }

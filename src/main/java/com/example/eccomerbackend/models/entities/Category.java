@@ -16,13 +16,7 @@ public class Category {
     private Long id;
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinTable(
-        name = "Product",
-        joinColumns = @JoinColumn(
-                name = "categoryId", referencedColumnName = "id"),
-        inverseJoinColumns = @JoinColumn(
-                name = "productId", referencedColumnName = "id"))
+    @OneToMany(mappedBy = "categories")
     private Collection<Product> products;
 
     public Category(Long id, String name){

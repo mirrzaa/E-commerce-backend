@@ -21,8 +21,9 @@ public class Payment {
     private Byte cvv;
     private Date created_date;
 
-    @OneToOne(mappedBy = "payment, request_log")
+    @OneToOne(mappedBy = "payment")
     private Order order;
+    @OneToOne(mappedBy = "payment")
     private Request_log request_log;
 
     public Payment(Long id, Long user_id, String payment_method, Short card_number, Date expired_date, Byte cvv, Date created_date){

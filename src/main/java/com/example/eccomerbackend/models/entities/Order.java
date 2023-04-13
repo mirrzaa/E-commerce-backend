@@ -10,7 +10,7 @@ import lombok.RequiredArgsConstructor;
 @Data
 @RequiredArgsConstructor
 @Entity
-@Table(name = "Order")
+@Table(name = "Orders")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,23 +18,20 @@ public class Order {
     private Long userId;
     private Date creationDate;
     private Date updatedDate;
-    private Long product_id;
-    private Long payment_id;
 
-    @OneToOne(mappedBy = "orders")
-    private Collection<Product> products;
+    @OneToOne
+    @JoinColumn(name = "product_id", referencedColumnName = "id")
+    private Product products;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "payment_id", referencedColumnName = "id")
-    private Payment payments;
+    private Payment payment;
 
-    public Order(Long id, Long userId, Date creationDate, Date updatedDate, Long product_id, Long payment_id){
+    public Order(Long id, Long userId, Date creationDate, Date updatedDate){
         this.id = id;
         this.userId = userId;
         this.creationDate = creationDate;
         this.updatedDate = updatedDate;
-        this.product_id = product_id;
-        this.payment_id = payment_id;
     }
 
     public Long getId(){
@@ -69,19 +66,19 @@ public class Order {
         this.updatedDate = updatedDate;
     }
 
-    public Long getProductId(){
-        return product_id;
+    public Product getProduct() {
+        return products;
     }
 
-    public void setProductId(Long product_id){
-        this.product_id = product_id;
+    public void setProduct(Product product) {
+        this.products = product;
     }
 
-    public Long getPaymentId(){
-        return payment_id;
+    public Payment getPayment() {
+        return payment;
     }
 
-    public void setPaymentId(Long payment_id){
-        this.payment_id = payment_id;
+    public void setPayment(Payment payment) {
+        this.payment = payment;
     }
 }
