@@ -20,7 +20,7 @@ public class Product {
     @OneToOne(mappedBy = "products")
     private Collection<Category> categories;
 
-    @ManyToMany
+    @ManyToOne
     @JoinTable(
             name = "Category",
             joinColumns = @JoinColumn(
