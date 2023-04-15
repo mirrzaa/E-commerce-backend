@@ -7,73 +7,76 @@ import java.util.Collection;
 @Data
 @RequiredArgsConstructor
 @Entity
-@Table(name = "Product")
+//@Table(name = "products")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String description;
-    private Long categoryId;
     private Integer price;
 
-    @OneToOne(mappedBy = "products")
-    private Collection<Category> categories;
-
     @ManyToOne
-    @JoinTable(
-            name = "Category",
-            joinColumns = @JoinColumn(
-                    name = "productId", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(
-                    name = "orderId", referencedColumnName = "id"))
-    private Collection<Order> orders;
+    @JoinColumn(name = "category_id")
+    private Category categories;
 
-    public Product(Long id, String name, String description, Long categoryId, Integer price){
+    @OneToOne(mappedBy = "products")
+    private Order orders;
+
+    public Product(Long id, String name, String description, Category category, Integer price) {
+
         this.id = id;
         this.name = name;
         this.description = description;
-        this.categoryId = categoryId;
+        this.categories = category;
         this.price = price;
     }
 
-    public Long getId(){
+    public Long getId() {
         return id;
     }
 
-    public void setId(Long id){
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name;
     }
 
-    public String getDescription(){
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description){
+    public void setDescription(String description) {
         this.description = description;
     }
 
-    public Long getCategoryId(){
-        return categoryId;
-    }
-
-    public void setCategoryId(Long categoryId){
-        this.categoryId = categoryId;
-    }
-
-    public Integer getPrice(){
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price){
+    public void setPrice(Integer price) {
         this.price = price;
+    }
+
+    public Category getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Category categories) {
+        this.categories = categories;
+    }
+
+    public Order getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Order orders) {
+        this.orders = orders;
     }
 }
