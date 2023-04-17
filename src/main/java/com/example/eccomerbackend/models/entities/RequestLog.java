@@ -3,18 +3,19 @@ package com.example.eccomerbackend.models.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Collection;
+import java.util.*;
 @Data
+@Entity
 @RequiredArgsConstructor
 //@NoArgsConstructor
-@Entity
-@Table(name = "role")
-public class Role {
+@Table(name = "requestLogs")
+public class RequestLog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String role_name;
+    private Date created_date;
 
-    @ManyToMany(mappedBy = "roles")
-    private Collection<User> users;
+    @OneToOne()
+    @JoinColumn(name = "payment_id")
+    private Payment payments;
 }
