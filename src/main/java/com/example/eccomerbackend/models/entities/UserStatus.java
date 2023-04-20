@@ -1,9 +1,13 @@
 package com.example.eccomerbackend.models.entities;
 
 import jakarta.persistence.*;
+import lombok.*;
 
+@Data
+@RequiredArgsConstructor
+//@NoArgsConstructor
 @Entity
-@Table(name = "user_status")
+@Table(name = "userStatus")
 public class UserStatus {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,44 +19,4 @@ public class UserStatus {
     @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getBasic() {
-        return basic;
-    }
-
-    public void setBasic(String basic) {
-        this.basic = basic;
-    }
-
-    public String getPremium() {
-        return premium;
-    }
-
-    public void setPremium(String premium) {
-        this.premium = premium;
-    }
-
-    public String getGold() {
-        return gold;
-    }
-
-    public void setGold(String gold) {
-        this.gold = gold;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 }
