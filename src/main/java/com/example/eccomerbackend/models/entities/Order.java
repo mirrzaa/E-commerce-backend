@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 import lombok.*;
 import java.util.Collection;
 import java.util.*;
-import lombok.RequiredArgsConstructor;
 
 @Data
 @RequiredArgsConstructor
@@ -14,9 +13,15 @@ import lombok.RequiredArgsConstructor;
 @Table(name = "orders")
 public class Order {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "orders_seq")
+    @SequenceGenerator(name = "orders_seq",
+                       allocationSize=1)
+    @Column(
+            name = "id",
+            updatable = false
+    )
     private Long id;
-    private Date creationDate;
+    private Date createdDate;
     private Date updatedDate;
 
     @OneToOne

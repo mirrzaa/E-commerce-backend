@@ -2,7 +2,6 @@ package com.example.eccomerbackend.models.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.util.*;
 
 @Data
@@ -12,15 +11,25 @@ import java.util.*;
 @Table(name = "payments")
 public class Payment {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "payments_seq")
+    @SequenceGenerator(name = "payments_seq",
+                        allocationSize=1
+    )
+    @Column(
+            name = "id",
+            updatable = false
+    )
     private Long id;
-    private Long user_id;
-    private String payment_method;
-    private Short card_number;
-    private Date expired_date;
+    private Long userId;
+    private String paymentMethod;
+    @Column(
+            name = "card_number",
+            unique = true
+    )
+    private Short cardNumber;
+    private Date expiredDate;
     private Byte cvv;
-    private Date created_date;
+    private Date createdDate;
 
     @OneToOne(mappedBy = "payments")
     private Order orders;

@@ -1,0 +1,4 @@
+2023-04-17 17:39:49 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "Select *\000d\000a[*]10from payments"; SQL statement:
+Select *
+10from payments [42000-214]

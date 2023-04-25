@@ -2,19 +2,27 @@ package com.example.eccomerbackend.models.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.util.Collection;
+import java.util.*;
 
 @Data
 @RequiredArgsConstructor
 //@NoArgsConstructor
 @Entity
-@ToString
 @Table(name = "categories")
 public class Category {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "categories_seq")
+    @SequenceGenerator(name = "categories_seq",
+                       allocationSize=1)
+    @Column(
+            name = "id",
+            updatable = false
+    )
     private Long id;
+    @Column(
+            name = "category_name",
+            unique = true
+    )
     private String name;
 
     @OneToMany(mappedBy = "categories")
