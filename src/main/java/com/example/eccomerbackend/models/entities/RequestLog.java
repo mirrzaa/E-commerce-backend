@@ -11,9 +11,15 @@ import java.util.*;
 @Table(name = "requestLogs")
 public class RequestLog {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "requestLogs_seq")
+    @SequenceGenerator(name = "requestLogs_seq",
+                       allocationSize=1)
+    @Column(
+            name = "id",
+            updatable = false
+    )
     private Long id;
-    private Date created_date;
+    private Date createdDate;
 
     @OneToOne()
     @JoinColumn(name = "payment_id")
