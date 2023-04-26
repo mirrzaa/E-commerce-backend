@@ -15,6 +15,10 @@ public class UserController {
 
     @Autowired
     private UserRepository userRepository;
+    @GetMapping("/")
+    public ResponseEntity<List<User>> getAll() {
+        return new ResponseEntity<>(userRepository.findAll(), HttpStatus.OK);
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<User> getUser(@PathVariable Long id) {
