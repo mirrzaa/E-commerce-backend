@@ -27,7 +27,7 @@ public class Category {
 
     @OneToMany(mappedBy = "categories")
     private Collection<Product> products;
-    
+
 }
 
 
