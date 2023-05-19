@@ -20,7 +20,7 @@ public class Product {
     private Long id;
     private String name;
     private String description;
-    private Integer price;
+    private Float price;
 
     @ManyToOne
     @JoinColumn(name = "category_id")
