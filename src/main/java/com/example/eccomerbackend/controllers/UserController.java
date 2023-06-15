@@ -2,6 +2,7 @@ package com.example.eccomerbackend.controllers;
 
 import com.example.eccomerbackend.models.entities.User;
 import com.example.eccomerbackend.repositories.UserRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -57,4 +58,5 @@ public class UserController {
         userRepository.deleteById(id);
         return ResponseEntity.noContent().build();
     }
+
 }

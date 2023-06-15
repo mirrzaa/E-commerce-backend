@@ -1,17 +1,21 @@
 package com.example.eccomerbackend.services.impl;
 
 import com.example.eccomerbackend.models.entities.User;
+import com.example.eccomerbackend.models.entities.UserStatus;
+import com.example.eccomerbackend.models.entitiesEnum.Status;
 import com.example.eccomerbackend.repositories.UserRepository;
 import com.example.eccomerbackend.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;
+
     @Override
     public List<User> getAllUsers() {
         return userRepository.findAll();
@@ -51,8 +55,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void addUser(User user) {
-
-    }  // TODO: impli interfaces UserService
-
+        userRepository.save(user);
     }
+
+    @Override
+    public Status getUserStatus(UserStatus userStatus) {
+        return userStatus.getUserStatus();
+    }
+
+
 }
