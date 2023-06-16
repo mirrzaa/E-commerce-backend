@@ -1,5 +1,7 @@
 package com.example.eccomerbackend.services.impl;
 
+import com.example.eccomerbackend.Mapper.UserMapper;
+import com.example.eccomerbackend.dtos.UserDto;
 import com.example.eccomerbackend.models.entities.User;
 import com.example.eccomerbackend.models.entities.UserStatus;
 import com.example.eccomerbackend.models.entitiesEnum.Status;
@@ -16,51 +18,53 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
+    private UserMapper userMapper;
+
     @Override
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
+    public List<UserDto> getAllUsers(User user) {
+        List<User> users = userRepository.findAll();
+        return userMapper.mapToDtoList(users);
     }
 
     @Override
-    public User getUserById(Long id) {
-        return userRepository.getById(id);
+    public UserDto getUserById(Long id) {
+        User user = userRepository.findById(id).orElse(null);
+        if (user == null) {
+            return null;
+        }
+        return userMapper.mapToDto(user);
     }
 
     @Override
-    public User createUser(User user) {
-        return userRepository.save(user);
+    public UserDto createUser(UserDto userDto) {
+        User user = userMapper.mapToEntity(userDto);
+        user = userRepository.save(user);
+        return userMapper.mapToDto(user);
     }
 
     @Override
-    public User updateUser(Long id, User user) {
+    public UserDto updateUser(Long id, UserDto userDto) {
         User existingUser = userRepository.findById(id).orElse(null);
         if (existingUser == null) {
             return null;
         }
-        existingUser.setLastName(user.getLastName());
-        existingUser.setFirstName(user.getFirstName());
-        existingUser.setUsername(user.getUsername());
-        existingUser.setBirthDate(user.getBirthDate());
-        existingUser.setEmail(user.getEmail());
-        existingUser.setUserStatus(user.getUserStatus());
-        existingUser.setId(user.getId());
-        existingUser.setPassword(user.getPassword());
-        existingUser.setPhoneNumber(user.getPhoneNumber());
-        existingUser.setPostAddress(user.getPostAddress());
-        existingUser.setRoles(user.getRoles());
+        existingUser.setLastName(userDto.getLastName());
+        existingUser.setFirstName(userDto.getFirstName());
+        existingUser.setUsername(userDto.getUsername());
+        existingUser.setBirthDate(userDto.getBirthDate());
+        existingUser.setEmail(userDto.getEmail());
+        existingUser.setId(userDto.getId());
+        existingUser.setPassword(userDto.getPassword());
+        existingUser.setPhoneNumber(userDto.getPhoneNumber());
+        existingUser.setPostAddress(userDto.getPostAddress());
 
-        return userRepository.save(existingUser);
+        return userMapper.mapToDto(existingUser);
     }
 
 
     @Override
     public void addUser(User user) {
         userRepository.save(user);
-    }
-
-    @Override
-    public Status getUserStatus(UserStatus userStatus) {
-        return userStatus.getUserStatus();
     }
 
 

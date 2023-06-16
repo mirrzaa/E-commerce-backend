@@ -1,5 +1,6 @@
 package com.example.eccomerbackend.services;
 
+import com.example.eccomerbackend.dtos.UserDto;
 import com.example.eccomerbackend.models.entities.User;
 import com.example.eccomerbackend.models.entities.UserStatus;
 import com.example.eccomerbackend.models.entitiesEnum.Status;
@@ -7,15 +8,17 @@ import com.example.eccomerbackend.models.entitiesEnum.Status;
 import java.util.List;
 
 public interface UserService {         //TODO: writhe methods: getAllUSers, getUserByid, createUser, updatedUser,
-    // map dto to entity, map entity to dto, deleteUser
-    List<User> getAllUsers();
+    // TODO: map dto to entity, map entity to dto, deleteUser
 
-    User getUserById(Long id);
 
-    User createUser(User user);
+    List<UserDto> getAllUsers(User user);
 
-    User updateUser(Long id, User user);
+    UserDto getUserById(Long id);
 
-    public abstract void addUser(User user);
-    Status getUserStatus(UserStatus userStatus);
+    UserDto createUser(UserDto userDto);
+
+    UserDto updateUser(Long id, UserDto userDto);
+
+    public void addUser(User user);
+
 }

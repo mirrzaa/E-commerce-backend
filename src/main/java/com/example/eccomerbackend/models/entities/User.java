@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.time.LocalDate;
 import java.util.Collection;
+import java.util.List;
 
 @Data
 @RequiredArgsConstructor
@@ -38,7 +39,7 @@ public class User {
                     name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(
                     name = "role_id", referencedColumnName = "id"))
-    private Collection<Role> roles;
+    private List<Role> roles;
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private UserStatus userStatus;
