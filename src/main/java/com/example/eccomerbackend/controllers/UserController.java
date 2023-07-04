@@ -28,8 +28,8 @@ public class UserController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @PostMapping                                 // TODO: to create dto user instate of user
-    public User createUser(@RequestBody @Valid User user) { // TODO: Valid Annotation and add dependencies for valid
+    @PostMapping
+    public User createUser(@RequestBody @Valid User user) {
         return userRepository.save(user);
     }
 
