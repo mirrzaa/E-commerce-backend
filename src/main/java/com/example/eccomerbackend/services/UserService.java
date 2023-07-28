@@ -1,8 +1,9 @@
 package com.example.eccomerbackend.services;
 
 import com.example.eccomerbackend.dtos.UserDto;
-import com.example.eccomerbackend.exceptions.GeneralCustomException;
 import com.example.eccomerbackend.exceptions.UserException;
+import com.example.eccomerbackend.payload.request.SignupRequest;
+import jakarta.validation.Valid;
 
 import java.util.List;
 
@@ -12,7 +13,7 @@ public interface UserService {
 
     UserDto getUserById(Long id) throws  UserException;
 
-    UserDto createUser(UserDto userDto) throws UserException;
+    UserDto createUser(@Valid SignupRequest userDto) throws UserException;
 
     UserDto updateUser(Long id, UserDto userDto) throws UserException;
 

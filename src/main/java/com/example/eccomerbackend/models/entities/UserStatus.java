@@ -13,6 +13,7 @@ public class UserStatus {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Enumerated
     private Status userStatus;
     @OneToOne
     @JoinColumn(name = "user_id")

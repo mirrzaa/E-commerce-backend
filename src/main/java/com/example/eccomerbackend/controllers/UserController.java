@@ -13,7 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/users")
 public class UserController {
-
+/*
     @Autowired
     private UserRepository userRepository;
     @GetMapping("/")
@@ -30,6 +30,7 @@ public class UserController {
 
     @PostMapping
     public User createUser(@RequestBody @Valid User user) {
+
         return userRepository.save(user);
     }
 
@@ -58,5 +59,5 @@ public class UserController {
         userRepository.deleteById(id);
         return ResponseEntity.noContent().build();
     }
-
+*/
 }

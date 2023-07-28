@@ -31,3 +31,12 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Ignoriere Log-Dateien
+*.log
+
+# Ignoriere Gzip-Dateien
+*.gz
+*.db
+# Ignoriere application.properties
+application.properties

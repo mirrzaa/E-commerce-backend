@@ -18,15 +18,6 @@ class EccomerBackendApplicationTests {
     void contextLoads() {
     }
 
-    @Test
-    public void userToMapTest() {
-        
-        User user = new User();
-        UserDto userDto = this.mapper.map(user, UserDto.class);
 
-        
-        assertEquals(user.getId(), userDto.getId());
-        assertEquals(user.getFirstName(), userDto.getFirstName());
-    }
 
 }

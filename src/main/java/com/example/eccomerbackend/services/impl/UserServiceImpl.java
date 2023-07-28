@@ -1,18 +1,19 @@
 package com.example.eccomerbackend.services.impl;
 
 import com.example.eccomerbackend.dtos.UserDto;
-import com.example.eccomerbackend.exceptions.GeneralCustomException;
 import com.example.eccomerbackend.exceptions.UserException;
 import com.example.eccomerbackend.models.entities.User;
+import com.example.eccomerbackend.payload.request.SignupRequest;
 import com.example.eccomerbackend.repositories.UserRepository;
 import com.example.eccomerbackend.services.UserService;
+import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,6 +25,8 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private ModelMapper modelMapper;
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
     public List<UserDto> getAllUsers() throws UserException {
@@ -52,21 +55,20 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDto createUser(UserDto userDto) throws UserException {
+    public UserDto createUser(@Valid SignupRequest userDto) throws UserException {
         try {
             User user = modelMapper.map(userDto, User.class);
+            user.setPassword(bCryptPasswordEncoder.encode(userDto.getPassword())); // Hinzufügen dieser Zeile
             user = userRepository.save(user);
             return modelMapper.map(user, UserDto.class);
         }catch (Exception e){
             logger.error("User creation failed: " + e.getMessage());
             throw new UserException("User creation failed: " + e.getMessage());
-
         }
-
     }
 
     @Override
-    public UserDto updateUser(Long id, UserDto userDto) throws UserException {
+    public UserDto updateUser(Long id, UserDto userDto) throws UserException { //TODO: add user role and status
         try {
             User existingUser = userRepository.findById(id).orElse(null);
             if (existingUser == null) {
